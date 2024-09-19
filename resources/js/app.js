@@ -18,6 +18,11 @@ const app = createApp({});
 import ExampleComponent from './components/ExampleComponent.vue';
 app.component('example-component', ExampleComponent);
 
+import Carousel from './components/Carousel.vue';
+app.component('Carousel', Carousel);
+
+import Cart from './components/Cart.vue';
+app.component('Cart', Cart);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -35,13 +40,5 @@ app.component('example-component', ExampleComponent);
  * an "id" attribute of "app". This element is included with the "auth"
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
-// public/js/app.js
-
-// public/js/app.js
-
-// public/js/app.js
-
-
-
 
 app.mount('#app');

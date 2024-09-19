@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Perfumes</title>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    <!-- Agregar estilos personalizados -->
+
+
     <style>
         .banner img {
             width: 100%;
@@ -172,7 +173,15 @@
     </style>
 </head>
 <body>
+@vite(['resources/js/app.js', 'resources/sass/app.scss'])
+<div id="app">
+    <example-component></example-component>
+</div>
+
 <header>
+    <div id="app">
+        <!-- Aquí van tus componentes Vue -->
+    </div>
     <div class="logo">
         <img src="{{ asset('images/logo.jpeg') }}" alt="Logo">
     </div>
