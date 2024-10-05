@@ -27,8 +27,10 @@
     "homepage": "https://github.com/rblancolll/Tarea-JavaScript#readme",
     "dependencies": {
         "@chenfengyuan/vue-carousel": "^2.0.0",
-        "axios": "^1.7.5",
+        "axios": "^1.7.7",
         "bootstrap": "^5.3.3",
+        "toastify-js": "^1.12.0",
+        "toastr": "^2.1.4",
         "vue": "^3.4.29",
         "vue-router": "^4.0.13",
         "vue3-carousel": "^0.3.4"

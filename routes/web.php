@@ -41,6 +41,7 @@ Route::post('/procesar-pago', [PaymentController::class, 'processPayment'])->nam
 Route::get('/success', function () {
     return view('success');
 })->name('payment.success');
+
 Route::post('/cart', [PaymentController::class, 'processPayment'])->name('processPayment');
 
 // Mostrar la vista de éxito de pago

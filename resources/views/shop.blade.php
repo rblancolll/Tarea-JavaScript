@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Perfumes</title>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    @vite(['resources/js/app.js'])
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
 
     <style>
@@ -173,15 +175,12 @@
     </style>
 </head>
 <body>
-@vite(['resources/js/app.js', 'resources/sass/app.scss'])
-<div id="app">
-    <example-component></example-component>
-</div>
 
+<div id="app">
 <header>
-    <div id="app">
+
         <!-- Aquí van tus componentes Vue -->
-    </div>
+
     <div class="logo">
         <img src="{{ asset('images/logo.jpeg') }}" alt="Logo">
     </div>
@@ -190,6 +189,8 @@
             <li><a href="#" data-section="inicio">Inicio</a></li>
             <li><a href="#" data-section="productos">Productos</a></li>
             <li><a href="#" data-section="contacto">Contacto</a></li>
+            <!-- Nueva sección Administrar Productos -->
+            <li><a href="#" data-section="administrar">Administrar Productos</a></li>
         </ul>
     </nav>
     <div class="cart">
@@ -255,13 +256,29 @@
         <h2>Contacto</h2>
         <p>Para más información, contáctanos en info@tiendadeperfumes.com.</p>
     </section>
+
+    <!-- Sección Administrar Productos -->
+
+    <section id="administrar">
+        <h2>Administrar Productos</h2>
+        <p>Desde aquí puedes agregar, editar o eliminar productos.</p>
+        <!-- Único contenedor #app -->
+        <br><br>
+        <div id="app">
+            <Carte></Carte>
+        </div>
+    </section>
+
 </main>
 
 <footer>
     <p>&copy; 2024 Tienda de Perfumes</p>
 </footer>
+</div>
 
 <script>
+
+
     document.addEventListener('DOMContentLoaded', () => {
         // Datos de los productos
         const products = [

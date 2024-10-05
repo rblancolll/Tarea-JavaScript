@@ -1,14 +1,13 @@
 <template>
     <div>
-        <h1 class="titulo-color">Articulos que podrian interesarte</h1>
+        <h1 class="titulo-color">Artículos que podrían interesarte</h1>
     </div>
     <div class="carousel-wrapper">
         <div class="carousel">
             <button @click="prev" class="arrow left-arrow">←</button>
             <div class="carousel-track" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
                 <div class="carousel-item" v-for="(item, index) in items" :key="index">
-                    <img :src="item.image" :alt="item.name">
-                    <!-- Enlace directo a la página del producto sin router -->
+                    <img :src="item.image" :alt="item.name" class="carousel-image">
                     <a :href="'/producto/' + item.id" class="view-button">Ver Producto</a>
                 </div>
             </div>
@@ -68,9 +67,10 @@ export default {
     align-items: center;
 }
 
-.carousel-item img {
+.carousel-image {
     width: 100%;
     height: auto;
+    object-fit: cover; /* Ajusta la imagen para que no se distorsione */
     display: block;
 }
 
@@ -116,5 +116,4 @@ export default {
     color: red; /* Cambia 'red' por el color que desees */
     font-size: 24px; /* Opcional: Cambia el tamaño del texto */
 }
-
 </style>
