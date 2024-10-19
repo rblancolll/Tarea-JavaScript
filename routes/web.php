@@ -61,3 +61,4 @@ Route::post('/carrito/add', [CartController::class, 'addToCart'])->name('cart.ad
 Route::post('/carrito/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
 //Route::get('/shop', [ProductController::class, 'index'])->name('shop');
+
