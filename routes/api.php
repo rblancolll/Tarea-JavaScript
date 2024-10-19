@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProductController;
 
 /*
@@ -16,14 +16,24 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Para la tienda
+Route::get('/shop', function () {
+    return view('shop');
+})->name('shop');
 
-Route::apiResource('items', ItemController::class);
-
+// Rutas de la API para productos
 Route::apiResource('productos', ProductController::class);
 
-Route::get('/productos', [ProductController::class, 'index']);
-Route::post('/productos', [ProductController::class, 'store']);
-Route::delete('/productos/{id}', [ProductController::class, 'destroy']);
+// Rutas públicas para productos
+//Route::get('/productos', [ProductController::class, 'index'])->middleware('check.json');
+
+Route::get('/productos', [ProductController::class, 'index'])->middleware('auth:sanctum'); // Lista pública de productos
+Route::post('/productos', [ProductController::class, 'store']); // Crear producto
+Route::put('/productos/{id}', [ProductController::class, 'update']); // Actualizar producto
+Route::delete('/productos/{id}', [ProductController::class, 'destroy']); // Eliminar producto
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/userinfo', [AuthController::class, 'infouser'])->middleware('auth:sanctum');
+
+Route::get('/api/productos', [ProductController::class, 'index']);

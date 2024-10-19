@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Perfumes</title>
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;
+    script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;
+    connect-src * 'unsafe-inline';
+    img-src * data: blob:;
+    frame-src *;
+    style-src * 'unsafe-inline';
+">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     @vite(['resources/js/app.js'])
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -263,9 +271,13 @@
         <h2>Administrar Productos</h2>
         <p>Desde aquí puedes agregar, editar o eliminar productos.</p>
         <!-- Único contenedor #app -->
+
+        <div id="message"></div>
+
         <br><br>
         <div id="app">
-            <Carte></Carte>
+            <Carte :initial-products='{{ json_encode($productos) }}'></Carte>
+            <api></api>
         </div>
     </section>
 

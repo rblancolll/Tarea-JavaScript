@@ -27,8 +27,8 @@ app.component('Cart', Cart);
 import ProductosList from './components/ProductosList.vue';
 app.component('Carte', ProductosList);
 
-
-
+import api from './components/api.vue';
+app.component('api', api);
 
 /**
  * The following block of code may be used to automatically register your

@@ -70,9 +70,15 @@ import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css'; // Asegúrate de que la CSS esté importada
 
 export default {
+    props: {
+        initialProducts: {
+            type: Array,
+            required: true
+        }
+    },
     data() {
         return {
-            productos: [],
+            productos: this.initialProducts,  // Usar la propiedad pasada de Blade
             nuevoProducto: {
                 nombre: '',
                 descripcion: '',
@@ -84,18 +90,18 @@ export default {
         };
     },
     mounted() {
-        this.obtenerProductos();
+        this.obtenerProductos(); // Si quieres cargar productos también desde la API
     },
     methods: {
         async obtenerProductos() {
             try {
-                const response = await axios.get('/api/productos');
-                this.productos = response.data.map(producto => {
-                    return {
-                        ...producto,
-                        imagen: `/images/${producto.imagen}`
-                    };
+                const response = await axios.get('/api/productos', {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('auth_token')}`
+                    }
                 });
+
+                this.productos = response.data;
             } catch (error) {
                 console.error("Error al obtener productos:", error);
                 Toastify({

@@ -40,6 +40,12 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'api' => [ // Agrega esta sección
+            'driver' => 'token', // O usa 'jwt' si estás usando JWT
+            'provider' => 'users',
+        ],
+
     ],
 
     /*

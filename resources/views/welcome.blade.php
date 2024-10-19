@@ -3,16 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}"> <!-- Asegúrate de que esto esté aquí -->
     <title>Laravel</title>
-
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @vite('resources/sass/app.scss')
-
 </head>
 <body class="antialiased">
 <div id="app">
-    <!-- Tu aplicación aquí -->
 </div>
 </body>
 </html>
+

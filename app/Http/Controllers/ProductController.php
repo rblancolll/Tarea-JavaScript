@@ -10,10 +10,18 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Producto::all(); // Retorna todos los productos
+        //return Producto::all(); // Retorna todos los productos
+        $productos = Producto::all(); // Recupera todos los productos
 
+        // Si la solicitud espera una respuesta en JSON (API), devolvemos el JSON
+        if ($request->expectsJson()) {
+            return response()->json($productos); // Retorna productos en formato JSON para API
+        }
+
+        // Si la solicitud es desde la web, devolvemos la vista con los productos
+        return view('shop', ['productos' => $productos]); // Muestra la vista con los productos
     }
 
     /**
@@ -74,5 +82,7 @@ class ProductController extends Controller
 
         return response()->json($producto, 200); // Responde con el producto actualizado
     }
+
+
 
 }

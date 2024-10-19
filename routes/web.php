@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Producto;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProductController;
 
 
 // Mostrar la página de inicio con productos
@@ -13,6 +14,7 @@ Route::get('/', function () {
     $productos = DB::table('productos')->get();
     return view('shop', ['productos' => $productos]);
 })->name('shop');
+
 
 // Ver detalle de un producto
 Route::get('/producto/{id}', function ($id) {
@@ -57,3 +59,5 @@ Route::get('/cart', [CartController::class, 'shoCart'])->name('cart');
 Route::post('/carrito/add', [CartController::class, 'addToCart'])->name('cart.add');
 
 Route::post('/carrito/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
+
+//Route::get('/shop', [ProductController::class, 'index'])->name('shop');
