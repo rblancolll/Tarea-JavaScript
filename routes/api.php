@@ -43,3 +43,11 @@ Route::get('/api/productos', [ProductController::class, 'index']);
 
 Route::get('/productos', [PerfumeController::class, 'getProductos']);
 
+Route::get('/libros', function () {
+    // Hacemos la solicitud a la API con el token en el header
+    $response = Http::withToken('4|7zRejOmOkb67njVQp0fQkCbsVtPnJl8dsKanaewZd73984b5')
+        ->get('http://18.217.198.83/api/libros');
+
+    // Devolvemos la respuesta como JSON
+    return $response->json();
+});

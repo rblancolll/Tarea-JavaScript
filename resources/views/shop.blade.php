@@ -199,6 +199,8 @@
             <li><a href="#" data-section="contacto">Contacto</a></li>
             <!-- Nueva sección Administrar Productos -->
             <li><a href="#" data-section="administrar">Administrar Productos</a></li>
+            <li><a href="#" data-section="api">API de Libros</a></li>
+
         </ul>
     </nav>
     <div class="cart">
@@ -277,10 +279,20 @@
         <br><br>
         <div id="app">
             <Carte :initial-products='{{ json_encode($productos) }}'></Carte>
-            <api></api>
+            <br>
         </div>
     </section>
 
+    <section id="api">
+        <!-- Único contenedor #app -->
+        <div id="message"></div>
+
+        <br><br>
+        <div id="app">
+            <br>
+            <api></api>
+        </div>
+    </section>
 </main>
 
 <footer>
