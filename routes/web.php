@@ -7,6 +7,8 @@ use App\Models\Producto;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\PerfumeController;
 
 
 // Mostrar la página de inicio con productos
@@ -61,4 +63,6 @@ Route::post('/carrito/add', [CartController::class, 'addToCart'])->name('cart.ad
 Route::post('/carrito/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
 
 //Route::get('/shop', [ProductController::class, 'index'])->name('shop');
+
+Route::get('api/productos', [PerfumeController::class, 'getProductos']);
 

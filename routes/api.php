@@ -4,6 +4,9 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PerfumeController;
+use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +40,6 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/userinfo', [AuthController::class, 'infouser'])->middleware('auth:sanctum');
 
 Route::get('/api/productos', [ProductController::class, 'index']);
+
+Route::get('/productos', [PerfumeController::class, 'getProductos']);
+

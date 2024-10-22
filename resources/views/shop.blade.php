@@ -277,6 +277,7 @@
         <br><br>
         <div id="app">
             <Carte :initial-products='{{ json_encode($productos) }}'></Carte>
+            <api></api>
         </div>
     </section>
 
