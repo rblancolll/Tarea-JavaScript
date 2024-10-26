@@ -38,7 +38,7 @@ export default {
     methods: {
         fetchLibros() {
             this.loading = true; // Comienza la carga
-            axios.get('http://3.20.219.68/api/libros', {
+            axios.get('http://18.221.213.252/api/libros', {
                 headers: {
                     'Authorization': `Bearer ${this.token}`,  // Agrega el token en los headers
                     'Accept': 'application/json'              // Asegura que la solicitud se haga como JSON
