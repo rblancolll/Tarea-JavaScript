@@ -64,5 +64,5 @@ Route::post('/carrito/remove', [CartController::class, 'removeFromCart'])->name(
 
 //Route::get('/shop', [ProductController::class, 'index'])->name('shop');
 
-Route::get('api/productos', [PerfumeController::class, 'getProductos']);
+Route::get('api/productos', [PerfumeController::class, 'getProductos'])->middleware('auth:sanctum');
 
